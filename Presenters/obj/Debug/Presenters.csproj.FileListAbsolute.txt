@@ -1,0 +1,9 @@
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\bin\Debug\Presenters.dll
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\bin\Debug\Presenters.pdb
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.dll
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.pdb
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\bin\Debug\Model.dll
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\bin\Debug\Model.pdb
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.csproj.AssemblyReference.cache
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.csproj.CoreCompileInputs.cache
+C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.csproj.CopyComplete
