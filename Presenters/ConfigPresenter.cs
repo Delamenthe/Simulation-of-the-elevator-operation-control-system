@@ -26,7 +26,7 @@ namespace Presenters {
                     ConfigData.maxWeightOfElevator = Int32.Parse(maxWeight.Replace(" ", ""));
                     ConfigData.speedOfElevator = Int32.Parse(speed.Replace(" ", ""));
                     ConfigData.accelerationOfElevator = Int32.Parse(acceleration.Replace(" ", ""));
-                    ConfigData.rule = rule;
+                    ConfigData.rule = rule.Split(' ');
                 }
                 catch {
 
@@ -35,9 +35,14 @@ namespace Presenters {
                     ConfigData.countOfFloor >= 2 && ConfigData.countOfFloor <= 20 &&
                     ConfigData.maxWeightOfElevator >= 1&&
                     ConfigData.speedOfElevator >= 1&&
-                    ConfigData.accelerationOfElevator>=1
+                    ConfigData.accelerationOfElevator>=1&&
+                    ConfigData.rule.Length>1
                     ) {
                     _configView.Confirm();
+                    if (rule[0].Equals("human") && rule.Length == 4) {
+                        Human human = new Human(rule[2], rule[1]);
+                    }
+                        
                     SimulationSystem.StartTime();
                 } else {
                     _configView.ShowErrorMessage("Uncorrect data");

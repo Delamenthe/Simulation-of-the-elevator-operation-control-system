@@ -11,7 +11,7 @@ using Presenters.IViews;
 using Presenters;
 using System.Threading;
 namespace WindowsForms {
-    public partial class SimulationForm : Form,ISimulationView {
+    public partial class SimulationForm : Form, ISimulationView {
         SimulationPresenter presenter { get; set; }
         System.ComponentModel.ComponentResourceManager resources;
         Image elevator;
@@ -90,7 +90,7 @@ namespace WindowsForms {
 
         }
         
-        public void DrawHuman(int startFloor, double humanPosition, int humanState, int currFrame) {
+        public void DrawHuman(int startFloor, double humanPosition, int humanState, int currFrame,int targetFloor) {
             int sizeX = 20;
             int sizeY = 45;
             if (humanState == 1) {
@@ -101,6 +101,9 @@ namespace WindowsForms {
             }
             if(humanState == 3) {
                 g.DrawImage(human, (float)humanPosition * 200+140, 980 - (sizeY + 5) * startFloor + 27, new Rectangle(new Point(sizeX * currFrame, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+            }
+            if (humanState == 6) {
+                g.DrawImage(human, (float)humanPosition * 200, 980 - (sizeY + 5) * targetFloor + 27, new Rectangle(new Point(sizeX * currFrame, 45), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
             }
             pictureBoxFloor.Image = part;
             

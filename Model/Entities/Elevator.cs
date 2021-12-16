@@ -49,21 +49,28 @@ namespace Model.Entities {
                 }
                 if(stateElevator == 2) {
                     SimulationSystemServise.WaitHuman((int)position,this);
-                    Thread.Sleep(1000*(int)Human.runTime);
+                    Thread.Sleep(1000*(int)Human.runTime+1000);
                     stateElevator = 3;
                 }
-                if (targetList.Count == 0&&stateElevator==3&&!isMove) {
+                
+                if (stateElevator == 4 && !isMove) {
+                    SimulationSystemServise.WaitHumanExit((int)position,this);
+                    Thread.Sleep(1000);
+                    stateElevator = 3;
+                }
+                if (targetList.Count == 0 && stateElevator == 3 && !isMove) {
                     stateElevator = 0;
+                    human.Clear();
                 }
                 if (stateElevator == 3 && !isMove) {
                     targetFloor = targetList[0];
                     targetList.RemoveAt(0);
-                    
+                    stateElevator = 4;
                     }
+               
                 }
             }
-        
-        
+
         public static void Create() {
             elevator = new List<Elevator>();
             for (int num = 0; num < ConfigData.countOfElevator; num++) {

@@ -271,7 +271,6 @@
             this.ruleTextBox.Name = "ruleTextBox";
             this.ruleTextBox.Size = new System.Drawing.Size(212, 175);
             this.ruleTextBox.TabIndex = 20;
-            this.ruleTextBox.TextChanged += new System.EventHandler(this.ruleTextBox_TextChanged);
             // 
             // label10
             // 
@@ -289,9 +288,9 @@
             this.infoLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoLabel1.Location = new System.Drawing.Point(236, 270);
             this.infoLabel1.Name = "infoLabel1";
-            this.infoLabel1.Size = new System.Drawing.Size(300, 16);
+            this.infoLabel1.Size = new System.Drawing.Size(297, 16);
             this.infoLabel1.TabIndex = 22;
-            this.infoLabel1.Text = "/human <start floor> <end floor> <count of people>";
+            this.infoLabel1.Text = "/human <count of people><start floor> <end floor>";
             // 
             // infoLabel2
             // 

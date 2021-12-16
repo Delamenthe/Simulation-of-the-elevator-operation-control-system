@@ -29,7 +29,7 @@ namespace Presenters {
         public void AddHuman() {
             if (Human.humans!=null)
                 for (int num = 0; num < Human.humans.Count(); num++) {
-                    _simulationView.DrawHuman(Human.humans[num].startFloor, Human.humans[num].position, Human.humans[num].state, Human.humans[num].currFrame);
+                    _simulationView.DrawHuman(Human.humans[num].startFloor, Human.humans[num].position, Human.humans[num].state, Human.humans[num].currFrame, Human.humans[num].targetFloor);
                 }
         }
         public void Pause() {

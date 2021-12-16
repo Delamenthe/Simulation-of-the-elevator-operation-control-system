@@ -10,6 +10,6 @@ namespace Presenters.IViews {
         
         void DrawElevator(int number, double position);
 
-        void DrawHuman(int floor, double humanPosition, int humanState,int currFrame);
+        void DrawHuman(int floor, double humanPosition, int humanState,int currFrame,int targetFloor);
     }
 }

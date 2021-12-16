@@ -42,5 +42,10 @@ namespace Model.Servises {
                 elevator.targetList.Sort();
             }
         }
+        public static void WaitHumanExit(int floor,Elevator elevator) {
+            foreach(Human hum in elevator.human) {
+                hum.ExitElevator(floor);
+            }
+        }
     }
 }

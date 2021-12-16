@@ -147,8 +147,5 @@ namespace WindowsForms {
                 accelerationValueTextBox.Text = "   !   ";
         }
 
-        private void ruleTextBox_TextChanged(object sender, EventArgs e) {
-
-        }
     }
 }

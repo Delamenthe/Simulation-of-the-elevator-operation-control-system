@@ -48,6 +48,16 @@ namespace Model.Entities {
                 if (state == 4) {
                     
                 }
+                if (state == 5) {
+                    timeStartRun = GlobalParametrs.time;
+                    state = 6;
+                }
+                if (state == 6) {
+                    position = (targetElevator+1) * (runTime-(GlobalParametrs.time - timeStartRun)) / runTime;
+                    if (GlobalParametrs.time - timeStartRun > runTime) {
+                        state = 7;
+                    }
+                }
             }
         }
         public Human(int _targetFloor,int _startFloor) {
@@ -65,7 +75,11 @@ namespace Model.Entities {
         public void PressButton() {
             targetElevator = SimulationSystemServise.CallingElevator(targetFloor, startFloor);
         }
-
+        public void ExitElevator(int floor) {
+            if(floor == targetFloor) {
+                state = 5;
+            }
+        }
         
 
     }
