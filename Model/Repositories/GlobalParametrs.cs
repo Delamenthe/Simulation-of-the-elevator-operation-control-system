@@ -10,6 +10,6 @@ namespace Model.Repositories {
         public static double time {set;get;}
         public static double accelaration { set; get; }
         public static double floorHeight = 3.0;
-       
+        public static bool pause;
     }
 }

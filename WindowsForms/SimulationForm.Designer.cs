@@ -86,6 +86,7 @@
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
             this.pauseToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // showInformationToolStripMenuItem
             // 
@@ -122,6 +123,7 @@
             this.fireAlarmToolStripMenuItem.Name = "fireAlarmToolStripMenuItem";
             this.fireAlarmToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.fireAlarmToolStripMenuItem.Text = "Fire alarm";
+            this.fireAlarmToolStripMenuItem.Click += new System.EventHandler(this.fireAlarmToolStripMenuItem_Click);
             // 
             // ShutdownButton
             // 
@@ -138,7 +140,7 @@
             // pictureBoxFloor
             // 
             this.pictureBoxFloor.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxFloor.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxFloor.InitialImage")));
+            this.pictureBoxFloor.InitialImage = null;
             this.pictureBoxFloor.Location = new System.Drawing.Point(470, 27);
             this.pictureBoxFloor.Name = "pictureBoxFloor";
             this.pictureBoxFloor.Size = new System.Drawing.Size(1405, 1020);

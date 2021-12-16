@@ -19,7 +19,7 @@ namespace WindowsForms {
         Image human;
         Image part;
         Graphics g;
-        public int currFrame=2;
+        
        
 
         public SimulationForm() {
@@ -90,15 +90,17 @@ namespace WindowsForms {
 
         }
         
-        public void DrawHuman(int startFloor, double humanPosition, int humanState) {
+        public void DrawHuman(int startFloor, double humanPosition, int humanState, int currFrame) {
             int sizeX = 20;
             int sizeY = 45;
-
             if (humanState == 1) {
-                g.DrawImage(human, (float)humanPosition * 140, 980 - (sizeY + 5) * startFloor+30, new Rectangle(new Point(sizeX * currFrame, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+                g.DrawImage(human, (float)humanPosition * 140, 980 - (sizeY + 5) * startFloor+27, new Rectangle(new Point(sizeX * currFrame, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
             }
-            if (humanState == 0) {
-                g.DrawImage(human, (float)humanPosition * 140, 980 - (sizeY + 5) * startFloor+30, new Rectangle(new Point(sizeX * 1, 1), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+            if (humanState == 0 || humanState == 2) {
+                g.DrawImage(human, (float)humanPosition * 140, 980 - (sizeY + 5) * startFloor+27, new Rectangle(new Point(sizeX * 0, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+            }
+            if(humanState == 3) {
+                g.DrawImage(human, (float)humanPosition * 200+140, 980 - (sizeY + 5) * startFloor + 27, new Rectangle(new Point(sizeX * currFrame, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
             }
             pictureBoxFloor.Image = part;
             
@@ -111,9 +113,14 @@ namespace WindowsForms {
             presenter.AddFloors();
             presenter.AddElevator();
             presenter.AddHuman();
-            if (currFrame == 11)
-                currFrame = 2;
-            currFrame++;
+        }
+
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e) {
+            presenter.Pause();
+        }
+
+        private void fireAlarmToolStripMenuItem_Click(object sender, EventArgs e) {
+
         }
     }
 }

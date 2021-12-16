@@ -8,11 +8,14 @@ namespace Model.Entities {
     public static class SimulationSystem {
 
         public static void CountTime() {
-            GlobalParametrs.time += GlobalParametrs.accelaration * 0.1;
+            if (!GlobalParametrs.pause) {
+                GlobalParametrs.time += GlobalParametrs.accelaration * 0.1;
+            }
         }
         public static void StartTime() {
             GlobalParametrs.accelaration = 1.0;
             GlobalParametrs.time = 0.0;
+            GlobalParametrs.pause = false;
             Elevator.Create();
         }
     }

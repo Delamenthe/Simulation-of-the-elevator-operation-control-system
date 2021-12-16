@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,6 @@ namespace WindowsForms {
         public ConfigForm() {
             InitializeComponent();
             presenter = new ConfigPresenter(this);
-
         }
 
         private void exitLabel_Click(object sender, EventArgs e) {
@@ -43,6 +43,112 @@ namespace WindowsForms {
             Application.Exit();
         }
 
-        
+        private void saveButton_Click(object sender, EventArgs e) {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Text Files | *.txt";
+            saveFileDialog1.Title = "Save data in file";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "") {
+                FileStream fs = (FileStream)saveFileDialog1.OpenFile();
+                StreamWriter w = new StreamWriter(fs);
+                w.WriteLine(countOfElevatorTextBox.Text);
+                w.WriteLine(countOfFloorsTextBox.Text);
+                w.WriteLine(strategyRadioButton.Checked);
+                w.WriteLine(maxWeightTextBox.Text);
+                w.WriteLine(speedValueTextBox.Text);
+                w.WriteLine(accelerationValueTextBox.Text);
+                w.WriteLine(ruleTextBox.Text);
+                
+                w.Flush();
+                w.Close();
+            }
+        }
+
+        private void loadButton_Click(object sender, EventArgs e) {
+            var filePath = string.Empty;
+            using (OpenFileDialog openFileDialog = new OpenFileDialog()) {
+                openFileDialog.InitialDirectory = "d:\\";
+                openFileDialog.Filter = "Text Files | *.txt";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                    filePath = openFileDialog.FileName;
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream)) {
+                        this.countOfElevatorTextBox.Text = reader.ReadLine();
+                        this.countOfFloorsTextBox.Text = reader.ReadLine();
+
+                        if (reader.ReadLine().Equals("True")) {
+                            this.strategyRadioButton.Checked = true;
+                        }
+                        else {
+                            this.strategyRadioButton.Checked = false;
+                        }
+                        this.maxWeightTextBox.Text = reader.ReadLine();
+                        this.speedValueTextBox.Text = reader.ReadLine();
+                        this.accelerationValueTextBox.Text = reader.ReadLine();
+                        this.ruleTextBox.Text = reader.ReadLine();
+                    }
+                }
+            }
+        }
+
+        private void countOfElevatorTextBox_Enter(object sender, EventArgs e) {
+            if (countOfElevatorTextBox.Text == "   !   ")
+                countOfElevatorTextBox.Text = "";
+        }
+
+        private void countOfElevatorTextBox_Leave(object sender, EventArgs e) {
+            if (countOfElevatorTextBox.Text == "") {
+                countOfElevatorTextBox.Text = "   !   ";
+            }
+                
+        }
+
+        private void countOfFloorsTextBox_Enter(object sender, EventArgs e) {
+            if (countOfFloorsTextBox.Text == "   !   ")
+                countOfFloorsTextBox.Text = "";
+        }
+
+        private void countOfFloorsTextBox_Leave(object sender, EventArgs e) {
+            if (countOfFloorsTextBox.Text == "")
+                countOfFloorsTextBox.Text = "   !   ";
+        }
+
+        private void maxWeightTextBox_Enter(object sender, EventArgs e) {
+            if (maxWeightTextBox.Text == "   !   ")
+                maxWeightTextBox.Text = "";
+        }
+
+        private void maxWeightTextBox_Leave(object sender, EventArgs e) {
+            if (maxWeightTextBox.Text == "")
+                maxWeightTextBox.Text = "   !   ";
+        }
+
+        private void speedValueTextBox_Enter(object sender, EventArgs e) {
+            if (speedValueTextBox.Text == "   !   ")
+                speedValueTextBox.Text = "";
+        }
+
+        private void speedValueTextBox_Leave(object sender, EventArgs e) {
+            if (speedValueTextBox.Text == "")
+                speedValueTextBox.Text = "   !   ";
+        }
+
+        private void accelerationValueTextBox_Enter(object sender, EventArgs e) {
+            if (accelerationValueTextBox.Text == "   !   ")
+                accelerationValueTextBox.Text = "";
+        }
+
+        private void accelerationValueTextBox_Leave(object sender, EventArgs e) {
+            if (accelerationValueTextBox.Text == "")
+                accelerationValueTextBox.Text = "   !   ";
+        }
+
+        private void ruleTextBox_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }

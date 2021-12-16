@@ -77,6 +77,7 @@
             this.countOfPeopleTextBox.PromptChar = ' ';
             this.countOfPeopleTextBox.Size = new System.Drawing.Size(24, 20);
             this.countOfPeopleTextBox.TabIndex = 4;
+            this.countOfPeopleTextBox.Text = "1";
             // 
             // startFloorTextBox
             // 
@@ -86,6 +87,7 @@
             this.startFloorTextBox.PromptChar = ' ';
             this.startFloorTextBox.Size = new System.Drawing.Size(24, 20);
             this.startFloorTextBox.TabIndex = 5;
+            this.startFloorTextBox.Text = "5";
             // 
             // endFloorTextBox
             // 
@@ -95,6 +97,7 @@
             this.endFloorTextBox.PromptChar = ' ';
             this.endFloorTextBox.Size = new System.Drawing.Size(24, 20);
             this.endFloorTextBox.TabIndex = 6;
+            this.endFloorTextBox.Text = "1";
             // 
             // AddHumanForm
             // 

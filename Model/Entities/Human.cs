@@ -8,27 +8,50 @@ using Model.Servises;
 namespace Model.Entities {
     public class Human {
         public static double waitTime = 3.0;
+        public static double runTime = 2.0;
         public int targetFloor { get; set;}
         public int startFloor { get; set; }
         public double timeStart { get; set; }
-        public bool pressedButton { get; set; }
+        public double timeStartRun { get; set; }
         public double position { get; set; }
         public int state { get; set; }
+        public int targetElevator { get; set; }
         public static List<Human> humans = new List<Human>();
-
+        public int currFrame { get; set; }
+        public bool pressedButton { get; set; }
         public void Wait() {
             while (true) {
                 Thread.Sleep(100);
+                currFrame = (int)((GlobalParametrs.time - timeStart) * 10)%9 + 3;
                 if (GlobalParametrs.time - timeStart > waitTime && !pressedButton) {
                     state = 0;
                     PressButton();
+                    pressedButton = true;
                 }
                 if (GlobalParametrs.time - timeStart < waitTime) {
                     position = (GlobalParametrs.time - timeStart) / waitTime;
                 }
+                if (state == 0) {
+                    PressButton();
+                    Thread.Sleep(1000);
+                }
+                if (state == 2) {
+                    state = 3;
+                    timeStartRun = GlobalParametrs.time;
+                }
+                if (state == 3) {
+                    position = targetElevator*(GlobalParametrs.time - timeStartRun) / runTime;
+                    if(GlobalParametrs.time - timeStartRun > runTime) {
+                        state =  4;
+                    }
+                }
+                if (state == 4) {
+                    
+                }
             }
         }
         public Human(int _targetFloor,int _startFloor) {
+            currFrame = 2;
             state = 1;
             position = 0;
             targetFloor = _targetFloor;
@@ -40,17 +63,10 @@ namespace Model.Entities {
             humanThread.Start();
         }
         public void PressButton() {
-            pressedButton = true;
-            SimulationSystemServise.CallingElevator(targetFloor, startFloor);
-            
+            targetElevator = SimulationSystemServise.CallingElevator(targetFloor, startFloor);
         }
 
-        public void Move() {
-            while (true) {
-                Thread.Sleep(100);
-              
-            }
-        }
+        
 
     }
 }
