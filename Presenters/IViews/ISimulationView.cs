@@ -9,5 +9,7 @@ namespace Presenters.IViews {
         void DrawFloors(int countOfFloor,int countOfElevator);
         
         void DrawElevator(int number, double position);
+
+        void DrawHuman(int floor, double humanPosition, int humanState);
     }
 }

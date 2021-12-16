@@ -16,16 +16,20 @@ namespace WindowsForms {
         System.ComponentModel.ComponentResourceManager resources;
         Image elevator;
         Image wall;
-        
+        Image human;
         Image part;
         Graphics g;
+        public int currFrame=2;
+       
+
         public SimulationForm() {
             InitializeComponent();
-            part = new Bitmap(1405, 1020);
+            part = new Bitmap(1420, 1020);
             g = Graphics.FromImage(part);
             resources = new System.ComponentModel.ComponentResourceManager(typeof(SimulationForm));
             elevator = new Bitmap("..\\..\\Resources\\closeElevator.png"); 
             wall = new Bitmap("..\\..\\Resources\\wall.png");
+            human = new Bitmap("..\\..\\Resources\\human.png");
             presenter = new SimulationPresenter(this);
             
             presenter.AddElevator();
@@ -38,6 +42,7 @@ namespace WindowsForms {
         private void accelerateToolStripMenuItem_Click(object sender, EventArgs e) {
             AccelerationForm accelerationForm = new AccelerationForm();
             accelerationForm.Show();
+
         }
 
         private void showInformationToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -82,19 +87,33 @@ namespace WindowsForms {
             g.DrawImage(elevator, 200-sizeX+numberElevator*(200),1015-sizeY*(float)position, new Rectangle(new Point(0, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
             
             pictureBoxFloor.Image = part;
-            
-
-
-
 
         }
         
+        public void DrawHuman(int startFloor, double humanPosition, int humanState) {
+            int sizeX = 20;
+            int sizeY = 45;
+
+            if (humanState == 1) {
+                g.DrawImage(human, (float)humanPosition * 140, 980 - (sizeY + 5) * startFloor+30, new Rectangle(new Point(sizeX * currFrame, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+            }
+            if (humanState == 0) {
+                g.DrawImage(human, (float)humanPosition * 140, 980 - (sizeY + 5) * startFloor+30, new Rectangle(new Point(sizeX * 1, 1), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+            }
+            pictureBoxFloor.Image = part;
+            
+            
+           
+        }
 
         private void timer_Tick(object sender, EventArgs e) {
             presenter.TimeSet();
             presenter.AddFloors();
             presenter.AddElevator();
-            
+            presenter.AddHuman();
+            if (currFrame == 11)
+                currFrame = 2;
+            currFrame++;
         }
     }
 }

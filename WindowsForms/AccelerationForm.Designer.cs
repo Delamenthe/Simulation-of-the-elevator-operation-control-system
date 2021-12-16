@@ -25,18 +25,18 @@
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
             this.SetButton = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.AccelerationTextBox = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(34, 22);
+            this.label1.Location = new System.Drawing.Point(18, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 20);
+            this.label1.Size = new System.Drawing.Size(235, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Enter multiplier acceleration";
+            this.label1.Text = "Enter coefficient of amplification";
             // 
             // SetButton
             // 
@@ -49,25 +49,28 @@
             this.SetButton.UseVisualStyleBackColor = true;
             this.SetButton.Click += new System.EventHandler(this.SetButton_Click);
             // 
-            // maskedTextBox1
+            // AccelerationTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(125, 54);
-            this.maskedTextBox1.Mask = "000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.PromptChar = ' ';
-            this.maskedTextBox1.Size = new System.Drawing.Size(24, 20);
-            this.maskedTextBox1.TabIndex = 3;
+            this.AccelerationTextBox.AllowPromptAsInput = false;
+            this.AccelerationTextBox.AsciiOnly = true;
+            this.AccelerationTextBox.Location = new System.Drawing.Point(125, 54);
+            this.AccelerationTextBox.Mask = "0.0";
+            this.AccelerationTextBox.Name = "AccelerationTextBox";
+            this.AccelerationTextBox.PromptChar = ' ';
+            this.AccelerationTextBox.Size = new System.Drawing.Size(24, 20);
+            this.AccelerationTextBox.TabIndex = 3;
             // 
             // AccelerationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 143);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.AccelerationTextBox);
             this.Controls.Add(this.SetButton);
             this.Controls.Add(this.label1);
             this.Name = "AccelerationForm";
             this.Text = "AccelerationForm";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,6 +80,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SetButton;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox AccelerationTextBox;
     }
 }

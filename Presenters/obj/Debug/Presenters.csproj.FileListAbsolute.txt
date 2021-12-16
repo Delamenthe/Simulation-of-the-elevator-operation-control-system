@@ -7,3 +7,12 @@ C:\Users\1111\Desktop\Project\WindowsForms\Presenters\bin\Debug\Model.pdb
 C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.csproj.AssemblyReference.cache
 C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.csproj.CoreCompileInputs.cache
 C:\Users\1111\Desktop\Project\WindowsForms\Presenters\obj\Debug\Presenters.csproj.CopyComplete
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\bin\Debug\Presenters.dll
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\bin\Debug\Presenters.pdb
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\bin\Debug\Model.dll
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\bin\Debug\Model.pdb
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\obj\Debug\Presenters.csproj.AssemblyReference.cache
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\obj\Debug\Presenters.csproj.CoreCompileInputs.cache
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\obj\Debug\Presenters.csproj.CopyComplete
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\obj\Debug\Presenters.dll
+D:\Simulation-of-the-elevator-operation-control-system-dev\Presenters\obj\Debug\Presenters.pdb

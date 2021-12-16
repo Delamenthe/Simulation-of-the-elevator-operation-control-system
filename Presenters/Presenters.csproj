@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccelerationPresenter.cs" />
     <Compile Include="AddHumanPresenter.cs" />
     <Compile Include="ConfigPresenter.cs" />
+    <Compile Include="IViews\IAccelerationView.cs" />
     <Compile Include="IViews\IAddHumanView.cs" />
     <Compile Include="IViews\IConfigView.cs" />
     <Compile Include="IViews\ISimulationView.cs" />

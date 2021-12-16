@@ -36,6 +36,7 @@ namespace Model.Entities {
             while (true) {
                 Thread.Sleep(100);
                 elevatorServise.MoveElevator(targetFloor);
+                
                 }
             }
         
