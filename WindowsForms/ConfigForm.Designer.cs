@@ -298,9 +298,9 @@
             this.infoLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoLabel2.Location = new System.Drawing.Point(236, 286);
             this.infoLabel2.Name = "infoLabel2";
-            this.infoLabel2.Size = new System.Drawing.Size(198, 16);
+            this.infoLabel2.Size = new System.Drawing.Size(199, 16);
             this.infoLabel2.TabIndex = 23;
-            this.infoLabel2.Text = "/firealarm <start time> <duration>";
+            this.infoLabel2.Text = "/fireAlarm <start time> <duration>";
             // 
             // ConfigForm
             // 

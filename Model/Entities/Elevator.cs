@@ -19,6 +19,7 @@ namespace Model.Entities {
         public bool isMove { get; set; }
         public int stateElevator { get; set; }
         public bool direction { get; set; }
+        public bool fireAlarmSettings { get; set; }
         public ElevatorServise elevatorServise { get; set; }
         
         public Elevator(int num) {
@@ -28,6 +29,7 @@ namespace Model.Entities {
             position = 1;
             targetFloor = 1;
             isMove = false;
+            fireAlarmSettings = true;
             human = new List<Human> ();
             targetList = new List<int>();
             elevatorServise = new ElevatorServise(num);
@@ -45,7 +47,18 @@ namespace Model.Entities {
         public void Move() {
             while (true) {
                 Thread.Sleep(100);
+                if (isMove && GlobalParametrs.fireAlarm && fireAlarmSettings) {
+                    isMove = false;
+                    targetFloor = 1;
+                    targetList.Clear();
+                    stateElevator = 4;
+                    fireAlarmSettings = false;
+                }
                 elevatorServise.MoveElevator(targetFloor);
+
+                
+                
+
                 if(stateElevator == 1 && !isMove) {
                     stateElevator = 2;
                 }
@@ -63,6 +76,7 @@ namespace Model.Entities {
                 if (targetList.Count == 0 && stateElevator == 3 && !isMove) {
                     stateElevator = 0;
                     human.Clear();
+                    fireAlarmSettings = true;
                 }
                 if (stateElevator == 3 && !isMove) {
                     targetFloor = targetList[0];

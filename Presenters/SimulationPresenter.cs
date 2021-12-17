@@ -40,6 +40,13 @@ namespace Presenters {
                 GlobalParametrs.pause = true;
             }
         }
-        
+        public void FireAlarm() {
+            if (GlobalParametrs.fireAlarm) {
+                GlobalParametrs.fireAlarm = false;
+            }
+            else {
+                GlobalParametrs.fireAlarm = true;
+            }
+        }
     }
 }

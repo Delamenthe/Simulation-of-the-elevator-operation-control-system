@@ -12,6 +12,6 @@ namespace Model.Repositories {
         public static int maxWeightOfElevator { get; set; }
         public static int speedOfElevator { get; set; }
         public static int accelerationOfElevator { get; set; }
-        public static string rule { get; set; }
+        public static string [] rule { get; set; }
     }
 }

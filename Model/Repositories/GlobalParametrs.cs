@@ -11,5 +11,6 @@ namespace Model.Repositories {
         public static double accelaration { set; get; }
         public static double floorHeight = 3.0;
         public static bool pause;
+        public static bool fireAlarm = false;
     }
 }

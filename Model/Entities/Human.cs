@@ -25,15 +25,23 @@ namespace Model.Entities {
                 currFrame = (int)((GlobalParametrs.time - timeStart) * 10)%9 + 3;
                 if (GlobalParametrs.time - timeStart > waitTime && !pressedButton) {
                     state = 0;
-                    PressButton();
                     pressedButton = true;
+                    if (!GlobalParametrs.fireAlarm) {
+                        PressButton();
+                    }
                 }
-                if (GlobalParametrs.time - timeStart < waitTime) {
+                if (GlobalParametrs.time - timeStart < waitTime && state == 1) {
                     position = (GlobalParametrs.time - timeStart) / waitTime;
                 }
-                if (state == 0) {
+                
+                if (state == 0 && !GlobalParametrs.fireAlarm) {
                     PressButton();
                     Thread.Sleep(1000);
+                }
+                if(state == 0 && GlobalParametrs.fireAlarm) {
+                    targetFloor = startFloor;
+                    targetElevator = 0;
+                    state = 5;
                 }
                 if (state == 2) {
                     state = 3;
@@ -45,8 +53,8 @@ namespace Model.Entities {
                         state =  4;
                     }
                 }
-                if (state == 4) {
-                    
+                if (state == 4 && GlobalParametrs.fireAlarm) {
+                    targetFloor = 1;
                 }
                 if (state == 5) {
                     timeStartRun = GlobalParametrs.time;

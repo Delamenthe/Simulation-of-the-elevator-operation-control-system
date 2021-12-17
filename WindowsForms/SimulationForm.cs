@@ -123,7 +123,7 @@ namespace WindowsForms {
         }
 
         private void fireAlarmToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            presenter.FireAlarm();
         }
     }
 }
