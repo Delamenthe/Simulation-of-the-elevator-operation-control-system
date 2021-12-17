@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model.Repositories;
+using Model.Servises;
 namespace Model.Entities {
     public static class SimulationSystem {
 
@@ -17,7 +18,7 @@ namespace Model.Entities {
             GlobalParametrs.time = 0.0;
             GlobalParametrs.pause = false;
             Elevator.Create();
-
+            RuleService.GetRule();
         }
     }
 }
