@@ -11,19 +11,41 @@ namespace Model.Servises {
             int callingElevator=-1;
             double minDistance = 20.0;
             double distance=0.0;
-            for (int i = 0; i < ConfigData.countOfElevator; i++) {
-                if(Elevator.elevator[i].stateElevator==1&& Elevator.elevator[i].targetFloor == _startFloor) {
-                    callingElevator=i;
-                    break;
-                }
-                if (Elevator.elevator[i].Check(ref distance, _targetFloor, _startFloor)) {
-                    if (minDistance > distance) {
-                        minDistance = distance;
+            if (ConfigData.stategy) {
+                for (int i = 0; i < ConfigData.countOfElevator; i++) {
+                    if (Elevator.elevator[i].stateElevator == 1 && Elevator.elevator[i].targetFloor == _startFloor) {
                         callingElevator = i;
+                        break;
+                    }
+                    if (Elevator.elevator[i].Check(ref distance, _targetFloor, _startFloor)) {
+                        if (minDistance > distance) {
+                            minDistance = distance;
+                            callingElevator = i;
+                        }
+                    }
+                }
+            }
+            else {
+                for (int i = 0; i < ConfigData.countOfElevator; i++) {
+                    if (Elevator.elevator[i].stateElevator == 1 && Elevator.elevator[i].targetFloor == _startFloor && (Elevator.elevator[i].direction== (_targetFloor - _startFloor < 0))) {
+                        callingElevator = i;
+                        break;
+                    }
+                    if (Elevator.elevator[i].Check(ref distance, _targetFloor, _startFloor)) {
+                        if (minDistance > distance) {
+                            minDistance = distance;
+                            callingElevator = i;
+                        }
                     }
                 }
             }
             if(callingElevator != -1) {
+                if (_targetFloor - _startFloor < 0) {
+                    Elevator.elevator[callingElevator].direction = true;
+                }
+                else {
+                    Elevator.elevator[callingElevator].direction = false;
+                }
                 Elevator.elevator[callingElevator].targetFloor = _startFloor;
                 Elevator.elevator[callingElevator].stateElevator = 1;
             }
@@ -39,12 +61,20 @@ namespace Model.Servises {
                         elevator.targetList.Add(Human.humans[i].targetFloor);
                     }
                 }
-                elevator.targetList.Sort();
+
+                
             }
+            elevator.targetList.Sort();
+            if (elevator.direction) { 
+                elevator.targetList.Reverse();
+            }
+            
         }
         public static void WaitHumanExit(int floor,Elevator elevator) {
             foreach(Human hum in elevator.human) {
                 hum.ExitElevator(floor);
+                   
+              
             }
         }
     }

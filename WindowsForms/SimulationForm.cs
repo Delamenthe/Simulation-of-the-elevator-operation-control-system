@@ -103,7 +103,7 @@ namespace WindowsForms {
                 g.DrawImage(human, (float)humanPosition * 200+140, 980 - (sizeY + 5) * startFloor + 27, new Rectangle(new Point(sizeX * currFrame, 0), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
             }
             if (humanState == 6) {
-                g.DrawImage(human, (float)humanPosition * 200, 980 - (sizeY + 5) * targetFloor + 27, new Rectangle(new Point(sizeX * currFrame, 45), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
+                g.DrawImage(human, (float)humanPosition * 200-25, 980 - (sizeY + 5) * targetFloor + 27, new Rectangle(new Point(sizeX * currFrame, 45), new Size(sizeX, sizeY)), GraphicsUnit.Pixel);
             }
             pictureBoxFloor.Image = part;
             

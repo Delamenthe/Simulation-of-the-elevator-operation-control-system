@@ -17,6 +17,7 @@ namespace Model.Entities {
             GlobalParametrs.time = 0.0;
             GlobalParametrs.pause = false;
             Elevator.Create();
+
         }
     }
 }

@@ -54,7 +54,7 @@
             this.AccelerationTextBox.AllowPromptAsInput = false;
             this.AccelerationTextBox.AsciiOnly = true;
             this.AccelerationTextBox.Location = new System.Drawing.Point(125, 54);
-            this.AccelerationTextBox.Mask = "0.0";
+            this.AccelerationTextBox.Mask = "00.00";
             this.AccelerationTextBox.Name = "AccelerationTextBox";
             this.AccelerationTextBox.PromptChar = ' ';
             this.AccelerationTextBox.Size = new System.Drawing.Size(24, 20);

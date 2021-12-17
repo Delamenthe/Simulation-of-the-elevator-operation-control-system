@@ -18,11 +18,13 @@ namespace Model.Entities {
         public double position { get; set; }
         public bool isMove { get; set; }
         public int stateElevator { get; set; }
+        public bool direction { get; set; }
         public ElevatorServise elevatorServise { get; set; }
         
         public Elevator(int num) {
             numberElevator = num;
             stateElevator=0;
+            direction = false;
             position = 1;
             targetFloor = 1;
             isMove = false;

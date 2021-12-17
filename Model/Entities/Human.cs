@@ -75,10 +75,12 @@ namespace Model.Entities {
         public void PressButton() {
             targetElevator = SimulationSystemServise.CallingElevator(targetFloor, startFloor);
         }
-        public void ExitElevator(int floor) {
+        public bool ExitElevator(int floor) {
             if(floor == targetFloor) {
                 state = 5;
+                return true;
             }
+            return false;
         }
         
 
